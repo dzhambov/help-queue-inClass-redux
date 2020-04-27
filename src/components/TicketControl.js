@@ -12,7 +12,6 @@ class TicketControl extends React.Component {
     super(props);
     this.state = {
       formVisibleOnPage: false, //local state: determines whether or not a form should show on the page
-      masterTicketList: [], //shared state: holds the list of all tickets
       selectedTicket: null, //local state: determines whether our Ticket Detail component should show or not 
       editing: false
     };
@@ -33,11 +32,18 @@ class TicketControl extends React.Component {
   }
 
   handleAddingNewTicketToList = (newTicket) => {
-    const newMasterTicketList = this.state.masterTicketList.concat(newTicket);
+    const { dispatch } = this.props; 
+    const { id, names, location, issue } = newTicket;
+    const action = {
+      type: 'ADD_TICKET',
+      id: id,
+      names: names,
+      location: location,
+      issue: issue
+    }
+    dispatch(action);
     this.setState({
-      masterTicketList: newMasterTicketList,
-      formVisibleOnPage: false
-    });
+      formVisibleOnPage: false});
   }
 
   handleChangingSelectedTicket = (id) => {
