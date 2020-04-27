@@ -6,7 +6,6 @@ import EditTicketForm from './EditTicketForm';
 import {connect } from 'react-redux';
 import { act } from 'react-dom/test-utils';
 
-
 class TicketControl extends React.Component {
 
   constructor(props) {
