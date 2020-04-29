@@ -4,6 +4,7 @@ import formVisibleReducer from '../../reducers/form-visible-reducer';
 import ticketListReducer from '../../reducers/ticket-list-reducer';
 import { act } from 'react-dom/test-utils';
 
+
 let store = createStore(rootReducer);
 
 describe('rootReducer', () => {
